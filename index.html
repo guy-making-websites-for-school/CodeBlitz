@@ -665,7 +665,7 @@
         <div class="label">Win Streak</div>
       </div>
       <div class="stat-box">
-        <div class="num" id="stat-cp" style="color:var(--accent-yellow);">100 ⭐</div>
+        <div class="num" id="stat-cp" style="color:var(--accent-yellow);">0 ⭐</div>
         <div class="label">Coding Points</div>
       </div>
     </div>
@@ -756,7 +756,7 @@
       <!-- PREVIEW PANEL -->
       <div class="panel" id="preview-panel">
         <div class="panel-header">
-          <span>👁 LIVE CANVAS PREVIEW</span>
+          <span>👁 LIVE PREVIEW</span>
           <div class="panel-actions">
             <button class="btn btn-secondary btn-icon" onclick="toggleMaximize('preview-panel')">🗖</button>
           </div>
@@ -871,8 +871,8 @@
   </div>
 
   <script>
-    const randomAdjectives = ["Pixel", "Cyber", "Byte", "Syntax", "Code", "Star", "Techno", "Nova", "Turbo", "Aura", "Logic", "Retro"];
-    const randomNouns = ["Coder", "Kid", "Dev", "Ninja", "Master", "Crafter", "Maker", "Wizard", "Rider", "Builder", "Hero", "Spark"];
+    const randomAdjectives = ["Pixel", "Cyber", "Byte", "Syntax", "Code", "Star", "Techno", "Nova", "Turbo", "Logic", "Retro"];
+    const randomNouns = ["Coder", "Kid", "Ninja", "Master", "Crafter", "Maker", "Wizard", "Rider", "Builder", "Hero", "Spark", "Neo"];
 
     function getRandomName() {
       const adj = randomAdjectives[Math.floor(Math.random() * randomAdjectives.length)];
@@ -1074,36 +1074,7 @@
       document.getElementById('expanded-topic-text').innerText = currentPrompt;
 
       // Beginner-friendly starter template
-      document.getElementById('code-input').value = 
-`<style>
-  body {
-    background-color: #0f172a;
-    color: #ffffff;
-    font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-  }
-  .card {
-    background-color: #1e293b;
-    padding: 25px;
-    border-radius: 12px;
-    border: 2px solid #00f0ff;
-    text-align: center;
-  }
-  h1 {
-    color: #00f0ff;
-    margin-bottom: 10px;
-  }
-</style>
-
-<div class="card">
-  <h1>Hello World!</h1>
-  <p>Welcome to CodeBlitz ⚡</p>
-</div>`;
-
+      document.getElementById('code-input')
       onCodeInput();
       startTimer();
       showToast("Match started! Clock is running.");
@@ -1132,7 +1103,7 @@
         if (state.remainingSeconds <= 0) {
           clearInterval(state.timerInterval);
           timerEl.innerText = "00:00";
-          showToast("⏰ Time expired! Submitting code.");
+          showToast("⏰ Time Over! Submitting code.");
           submitChallenge();
           return;
         }
